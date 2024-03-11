@@ -1,0 +1,123 @@
+
+.body2
+{
+    background-color: rgb(72, 70, 70);
+}
+.title{
+    color: rgb(56, 158, 230);
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-right: 100px;
+    padding-left: 700px;
+}
+.menubar{
+    padding: 0px;
+    margin: 0px;
+    color: #fff;
+    align-items: end;
+    transition: 2s;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.menubar ul{
+    display:inline-flex;
+    list-style: none;
+}
+.menubar li{
+    width: 120px;
+    margin:15px;
+    padding: 15px;
+    
+}
+.menubar ul li a{
+    color: #fff;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    transition: 2s;
+}
+.active1:hover{
+    background-color:rgb(235, 52, 52);
+    border-radius: 30px;
+    transition: 1s;
+    text-decoration: underline;
+}
+.active2:hover{
+    background-color:rgb(235, 52, 52);
+    border-radius: 30px;
+    transition: 1s;
+    
+    text-decoration: underline;
+    
+}
+
+.active3:hover{
+    background-color:rgb(235, 52, 52);
+    border-radius: 30px;
+    transition: 1s;
+    text-decoration: underline;
+   
+}
+
+.active4:hover{
+    background-color:rgb(235, 52, 52); 
+    border-radius: 30px;
+    transition: 1s;
+    text-decoration: underline;
+   
+}
+
+.active5:hover{
+    background-color:rgb(235, 52, 52);    
+    border-radius: 30px;
+    transition: 1s;
+    text-decoration: underline;
+    
+}
+.body1{
+    position: relative;
+    min-height: 100vh;
+    background-image :url(tree-736885_1280.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    
+}
+.Register h1{
+    position: absolute;
+    top: 30%;
+    left: 38%;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 80px;
+    color: #fff;
+    border-radius:40px ;
+    width: 460px;
+    animation-name: move;
+    animation-duration: 2s;
+    animation-iteration-count: 2s;
+    animation-direction:alternate ;
+}
+@keyframes move{
+    0%{
+        transform: translate(0);
+    }
+    100%{
+        transform: translate(100px);
+    }
+}
+.contact{
+    
+    color: #fff;
+}
+.end{
+    padding: 10px;
+    text-align: center;
+    background-color: black;
+    
+}
+.about1 a{
+    color: #fff;
+    text-decoration: none;
+}
+.about1 a i:hover{
+    text-decoration:underline;
+
+}

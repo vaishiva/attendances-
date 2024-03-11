@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Attendance Tracker</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        color: #fff;
+        background-color: rgb(71, 69, 69);
+    }
+    .div1{
+        position: relative;
+        left: 40%;
+    }
+    input[type="text"] {
+        padding: 8px;
+        width: 200px;
+        margin-right: 10px;
+    }
+    button {
+        padding: 8px 16px;
+        cursor: pointer;
+    }
+    button.present, button.absent {
+        margin-right: 10px;
+        background-color: #4CAF50;
+    }
+    #attendanceList {
+        margin-top: 20px;
+    }
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    li {
+        margin-bottom: 5px;
+    }
+    #downloadBtn {
+        margin-top: 20px;
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 4px;
+    }
+</style>
+</head>
+<body>
+<div class="div1">
+<h2>Attendance Tracker</h2>
+
+<input type="text" id="nameInput" placeholder="Enter student name">
+<button class="present" onclick="markAttendance('present')">Present</button>
+<button class="absent" onclick="markAttendance('absent')">Absent</button>
+
+<div id="attendanceList">
+    <h3>Attendance List</h3>
+    <ul id="attendees">
+    </ul>
+</div>
+
+<button id="downloadBtn" onclick="downloadAttendance()">Download Attendance</button>
+</div>
+<script>
+    function markAttendance(status) {
+        const nameInput = document.getElementById('nameInput');
+        const name = nameInput.value.trim();
+
+        if (name === '') {
+            alert('Please enter a valid name');
+            return;
+        }
+
+        const attendeesList = document.getElementById('attendees');
+        const listItem = document.createElement('li');
+        listItem.textContent = `${name} - ${status}`;
+        attendeesList.appendChild(listItem);
+
+        nameInput.value = '';
+    }
+
+    function downloadAttendance() {
+        const attendeesList = document.getElementById('attendees');
+        const listItems = attendeesList.getElementsByTagName('li');
+        let data = 'Student Name and Status\n';
+        for (let i = 0; i < listItems.length; i++) {
+            const text = listItems[i].textContent;
+            const [name, status] = text.split(' - ');
+            data += `${name},${status}\n`;
+        }
+
+        const blob = new Blob([data], { type: 'text/csv' });
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'attendance.csv';
+        document.body.appendChild(a);
+        a.click();
+        window.URL.revokeObjectURL(url);
+        document.body.removeChild(a);
+    }
+</script>
+
+</body>
+</html>
